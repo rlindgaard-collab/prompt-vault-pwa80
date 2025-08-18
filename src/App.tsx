@@ -78,7 +78,14 @@ function flatten(data: PromptsJson | null): FlatPrompt[] {
 
 // ---- Egne Prompts ----
 
-function EgnePrompter({ prompts, addPrompt, removePrompt, onCopy }) {
+interface EgnePrompterProps {
+  prompts: string[]
+  addPrompt: (text: string) => void
+  removePrompt: (index: number) => void
+  onCopy: (text: string) => void
+}
+
+function EgnePrompter({ prompts, addPrompt, removePrompt, onCopy }: EgnePrompterProps) {
   const [text, setText] = useState("");
   return (
     <div className="space-y-3">
