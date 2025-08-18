@@ -31,7 +31,7 @@ function loadFavorites(): Record<string, true> {
 }
 
 export const useVault = create<State>((set, get) => ({
-  dark: (localStorage.getItem('pv_dark') ?? 'false') === 'true',
+  dark: (localStorage.getItem('pv_dark') ?? 'true') === 'true',
   setDark: (v) => { localStorage.setItem('pv_dark', String(v)); set({ dark: v }) },
   data: (() => {
     try { const raw = localStorage.getItem('pv_json'); return raw ? JSON.parse(raw) : null } catch { return null }
