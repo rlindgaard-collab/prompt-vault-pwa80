@@ -22,13 +22,6 @@ export function Header({ dark, setDark, onToggleFav, showFav, onToggleCustom, sh
         <button onClick={() => setDark(!dark)}
           className="px-3 py-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 hover:shadow-soft"
           title="Toggle theme">{dark ? '🌙' : '☀️'}</button>
-        <button onClick={() => {
-          if ((window.navigator as any).standalone || window.matchMedia('(display-mode: standalone)').matches) {
-            alert('Allerede installeret som app ✅')
-          } else {
-            alert('Tip: Brug browserens menu for at installere på hjemskærmen.')
-          }
-        }} className="px-3 py-1.5 rounded-2xl bg-accent text-white">Installer</button>
       </div>
     </header>
   )
