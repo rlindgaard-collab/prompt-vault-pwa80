@@ -258,7 +258,17 @@ const handleCopy = (text: string) => {
             <label className="block text-sm font-medium text-ink dark:text-white mb-1">Faner</label>
             <select
               value={activeTab}
-              onChange={(e) => { setShowFav(false); setShowCustom(false); setActiveTab(e.target.value); const el = document.getElementById(`sec-${e.target.value}`); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+              onChange={(e) => { 
+                setShowFav(false); 
+                setShowCustom(false); 
+                setActiveTab(e.target.value); 
+                const el = document.getElementById(`sec-${e.target.value}`); 
+                if (el) {
+                  const offset = 120;
+                  const elementPosition = el.offsetTop - offset;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
               className="w-full rounded-2xl border px-3 py-2 shadow-soft bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-ink dark:text-white"
             >
               {tabs.map(t => (
@@ -274,7 +284,11 @@ const handleCopy = (text: string) => {
                 <button
                   className="font-semibold text-sm text-ink dark:text-white hover:underline"
                   onClick={() => { setShowFav(false); setShowCustom(false); const el = document.getElementById(`sec-${displayLabel(s.section)}`)
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    if (el) {
+                      const offset = 120; // Height of sticky search + padding
+                      const elementPosition = el.offsetTop - offset;
+                      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                    }
                   }}
                 >
                   {displayLabel(s.section)}
@@ -285,7 +299,11 @@ const handleCopy = (text: string) => {
                       <button
                         className="block text-left hover:underline break-words whitespace-normal"
                         onClick={() => { setShowFav(false); setShowCustom(false); const el = document.getElementById(`cat-${displayLabel(s.section)}::${displayLabel(c.category)}`)
-                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                          if (el) {
+                            const offset = 120; // Height of sticky search + padding
+                            const elementPosition = el.offsetTop - offset;
+                            window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                          }
                         }}
                       >
                         {displayLabel(c.category)}
@@ -304,7 +322,11 @@ const handleCopy = (text: string) => {
             <label className="block text-sm font-medium text-ink dark:text-white mb-2">Vælg fane</label>
             <select
               value={activeTab}
-              onChange={(e) => { setShowFav(false); setShowCustom(false); setActiveTab(e.target.value); }}
+              onChange={(e) => { 
+                setShowFav(false); 
+                setShowCustom(false); 
+                setActiveTab(e.target.value);
+              }}
               className="w-full rounded-2xl border px-3 py-2 shadow-soft bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-ink dark:text-white"
             >
               {tabs.map(t => (
