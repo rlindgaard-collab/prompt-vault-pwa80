@@ -392,7 +392,7 @@ const handleCopy = (text: string) => {
                   </button>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
   {custom.map(p => (
     <div key={p.id} className="relative">
       <button
@@ -445,7 +445,7 @@ const handleCopy = (text: string) => {
               {s.categories.map(c => (
                 <div key={`${displayLabel(s.section)}-${displayLabel(c.category)}`} id={`cat-${displayLabel(s.section)}::${displayLabel(c.category)}`} className="space-y-2">
                   <h3 className="text-lg font-semibold text-ink dark:text-white">{displayLabel(c.category)}</h3>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {c.prompts.map((p) => {
                       const id = computeId(activeTab, s.section, c.category, p)
                       return (
