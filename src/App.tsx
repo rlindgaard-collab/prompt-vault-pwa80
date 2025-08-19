@@ -299,6 +299,20 @@ const handleCopy = (text: string) => {
         </div>
 
         <main className="flex-1 md:ml-72 space-y-6">
+          {/* Mobile tab selector */}
+          <div className="md:hidden">
+            <label className="block text-sm font-medium text-ink dark:text-white mb-2">Vælg fane</label>
+            <select
+              value={activeTab}
+              onChange={(e) => { setShowFav(false); setShowCustom(false); setActiveTab(e.target.value); }}
+              className="w-full rounded-2xl border px-3 py-2 shadow-soft bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-ink dark:text-white"
+            >
+              {tabs.map(t => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
+
           <div className="sticky top-0 z-10 pt-2 pb-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
             <input
               value={q}
